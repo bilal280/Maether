@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عمرة الإرث النبوي 37 - شركة ماثر للسياحة الدينية</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+       
+  .trips-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .trips-gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .trips-gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  /* تابلت */
+  @media (max-width: 992px) {
+    .trips-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* موبايل */
+  @media (max-width: 600px) {
+    .trips-gallery {
+      grid-template-columns: 1fr;
+    }
+    .trips-gallery img {
+      height: 220px;
+    }
+  }
+
+  /* في الشاشات الصغيرة (موبايل) نخلي الصور عمودية */
+  @media (max-width: 768px) {
+    .gallery {
+      flex-direction: column;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+    }
+  }
+        .umrah-hero-section {
+            background: linear-gradient(135deg, #392F47, #392F47, #392F47), url('kaaba-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        @media (max-width: 768px) {
+            .umrah-hero-section {
+                background: linear-gradient(135deg, #392F47, #392F47, #392F47), url('kaaba-mobile.jpg');
+                background-size: cover;
+                background-position: center;
+                padding-bottom: 100px;
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+            }
+        }
+
+        .text-shadow-lg {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .animate-slideIn {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-nav {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-nav.open {
+            transform: translateX(0);
+        }
+
+        .room-card {
+            transition: all 0.3s ease;
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .room-card.selected {
+            border-color: #7c3aed;
+            background-color: #f3e8ff;
+            transform: scale(1.05);
+        }
+
+        .success-message {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+            z-index: 50;
+            background-color: #059669;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .success-message.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 40;
+            background-color: #7c3aed;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            transform: scale(0);
+        }
+
+        .floating-button.show {
+            transform: scale(1);
+        }
+
+        .floating-button:hover {
+            transform: scale(1.1);
+            background-color: #5b21b6;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+            background-color: #25d366;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            background-color: white;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .form-input select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        select.form-input {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #7c3aed;
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #5b21b6;
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #7c3aed;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 40;
+            background-color: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Footer fixes */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        /* Navigation Bar Styling */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-bar .nav-links a {
+            color: #392F47;
+            font-weight: 600;
+        }
+
+        .nav-bar .nav-links a:hover {
+            color: #7c3aed;
+        }
+
+        .mobile-nav-button {
+            color: #392F47;
+        }
+
+        /* Mobile dropdown fixes */
+        @media (max-width: 768px) {
+            select.form-input {
+                font-size: 16px; /* Prevents zoom on iOS */
+                min-height: 44px; /* Better touch target */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="font-bold" id="successText">تم اختيار الغرفة بنجاح!</span>
+            </div>
+            <button onclick="hideSuccessMessage()" class="text-white hover:text-gray-200 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Booking Button - Mobile Only -->
+    <div id="floatingButton" class="floating-button md:hidden" onclick="scrollToForm()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+        </svg>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative umrah-hero-section min-h-screen flex flex-col justify-between text-white px-0">
+        <!-- Light overlay for mobile only -->
+        <div class="absolute inset-0 block md:hidden pointer-events-none z-10" style="background: rgba(88, 28, 135, 0.4);"></div>
+        <div class="relative z-20">
+            <!-- Mobile Nav Button -->
+            <div class="nav-bar flex justify-between flex-row-reverse items-center px-4 pt-6 pb-4 md:hidden">
+                <button onclick="toggleMobileNav()" class="mobile-nav-button p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400" aria-label="Open navigation menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div class="flex items-center w-12 h-12">
+                    <img src="asset/image1.png" alt="شركة ماثر" class="object-contain w-full h-full">
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="nav-bar hidden md:block w-full">
+                <div class="max-w-7xl mx-auto w-full flex justify-between flex-row-reverse items-center px-10 pt-8 pb-6">
+                    <div class="nav-links flex gap-10 text-lg font-medium">
+                        <a href="#" class="hover:underline transition-colors">الرئيسية</a>
+                        <a href="#rooms" class="hover:underline transition-colors">أنواع الغرف</a>
+                        <a href="#booking-form" class="hover:underline transition-colors">احجز الآن</a>
+                        <a href="#program" class="hover:underline transition-colors">البرنامج</a>
+                        <a href="#sheikh" class="hover:underline transition-colors">الشيخ المرافق</a>
+                    </div>
+                    <div class="flex items-center w-32 h-32">
+                        <img src="asset/image1.png" alt="شركة ماثر" class="object-contain">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Nav Drawer -->
+            <div id="mobileNav" class="mobile-nav fixed top-0 right-0 z-50 h-full w-64 bg-white text-purple-900 shadow-lg md:hidden flex flex-col">
+                <div class="flex justify-between items-center p-4 border-b border-purple-100">
+                    <div class="flex items-center">
+                        <img src="asset/image1.png" alt="شركة ماثر" class="w-8 h-8">
+                    </div>
+                    <button onclick="toggleMobileNav()" class="p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400" aria-label="Close navigation menu">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-6 text-lg font-medium p-6">
+                    <a href="#" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">الرئيسية</a>
+                    <a href="#rooms" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">أنواع الغرف</a>
+                    <a href="#booking-form" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">احجز الآن</a>
+                    <a href="#program" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">البرنامج</a>
+                    <a href="#sheikh" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">الشيخ المرافق</a>
+                </nav>
+            </div>
+
+            <!-- Overlay when menu is open -->
+            <div id="overlay" class="overlay" onclick="toggleMobileNav()"></div>
+
+            <!-- Main hero content -->
+            <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto px-10 py-16 md:py-24">
+                <div class="flex-1 flex flex-col items-start text-right">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-relaxed text-shadow-lg">عمرة الإرث النبوي 37</h1>
+                    <div class="mb-6 text-xl md:text-2xl font-semibold text-purple-200">
+                        من الديار التركية: 7 ليالٍ من 16 إلى 24 أيلول
+                    </div>
+                    <p class="mb-8 text-lg max-w-xl leading-relaxed">
+                        انضم إلينا في رحلة روحانية مميزة إلى الأراضي المقدسة مع الشيخ جهاد الكالوتي. 
+                        رحلة شاملة تتضمن الإقامة في فنادق 4 نجوم، زيارات المآثر النبوية، وبرامج منوعة.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="#rooms" class="btn-primary text-lg shadow-lg">اختر غرفتك</a>
+                        <a href="#sheikh" class="btn-secondary text-lg">تعرف على الشيخ</a>
+                    </div>
+                </div>
+                <div class="flex-1 hidden md:block"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Types Section -->
+    <section class="py-16 px-4 bg-gradient-to-b from-stone-50 to-white" id="rooms">
+        <div class="max-w-6xl mx-auto text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-purple-900">أنواع الغرف المتاحة</h2>
+            <p class="text-stone-600 text-lg max-w-2xl mx-auto">اختر نوع الغرفة المناسب لك من بين خياراتنا المتنوعة في فنادق 4 نجوم مع جميع وسائل الراحة</p>
+        </div>
+
+        <!-- Mobile: stacked cards -->
+        <div class="flex flex-col gap-6 max-w-md mx-auto md:hidden">
+            <div class="room-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center border-2 border-stone-200" data-room="quad">
+                <div class="text-6xl mb-4">👥👥</div>
+                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900">الغرفة الرباعية</h3>
+                <div class="text-stone-600 text-md mb-4 text-center leading-relaxed">
+                    <div class="mb-2">4 أشخاص في الغرفة</div>
+                </div>
+                <div class="font-bold text-purple-700 text-3xl mb-2">1050 دولار</div>
+                <div class="text-sm text-stone-500">للشخص الواحد</div>
+            </div>
+
+            <div class="room-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center border-2 border-stone-200" data-room="triple">
+                <div class="text-6xl mb-4">👥👤</div>
+                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900">الغرفة الثلاثية</h3>
+                <div class="text-stone-600 text-md mb-4 text-center leading-relaxed">
+                    <div class="mb-2">3 أشخاص في الغرفة</div>
+                </div>
+                <div class="font-bold text-purple-700 text-3xl mb-2">1075 دولار</div>
+                <div class="text-sm text-stone-500">للشخص الواحد</div>
+            </div>
+
+            <div class="room-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center border-2 border-stone-200" data-room="double">
+                <div class="text-6xl mb-4">👥</div>
+                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900">الغرفة الثنائية</h3>
+                <div class="text-stone-600 text-md mb-4 text-center leading-relaxed">
+                    <div class="mb-2">شخصان في الغرفة</div>
+                </div>
+                <div class="font-bold text-purple-700 text-3xl mb-2">1100 دولار</div>
+                <div class="text-sm text-stone-500">للشخص الواحد</div>
+            </div>
+        </div>
+
+        <!-- Desktop: grid layout -->
+        <div class="max-w-6xl mx-auto hidden md:block">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="room-card bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-2 border-stone-200" data-room="quad">
+                    <div class="text-8xl mb-6">👥👥</div>
+                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900">الغرفة الرباعية</h3>
+                    <div class="text-stone-600 text-lg mb-6 text-center leading-relaxed">
+                        <div class="mb-2">4 أشخاص في الغرفة</div>
+                    </div>
+                    <div class="font-bold text-purple-700 text-4xl mb-2">1050 دولار</div>
+                    <div class="text-sm text-stone-500">للشخص الواحد</div>
+                </div>
+
+                <div class="room-card bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-2 border-stone-200" data-room="triple">
+                    <div class="text-8xl mb-6">👥👤</div>
+                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900">الغرفة الثلاثية</h3>
+                    <div class="text-stone-600 text-lg mb-6 text-center leading-relaxed">
+                        <div class="mb-2">3 أشخاص في الغرفة</div>
+                    </div>
+                    <div class="font-bold text-purple-700 text-4xl mb-2">1075 دولار</div>
+                    <div class="text-sm text-stone-500">للشخص الواحد</div>
+                </div>
+
+                <div class="room-card bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-2 border-stone-200" data-room="double">
+                    <div class="text-8xl mb-6">👥</div>
+                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900">الغرفة الثنائية</h3>
+                    <div class="text-stone-600 text-lg mb-6 text-center leading-relaxed">
+                        <div class="mb-2">شخصان في الغرفة</div>
+                    </div>
+                    <div class="font-bold text-purple-700 text-4xl mb-2">1100 دولار</div>
+                    <div class="text-sm text-stone-500">للشخص الواحد</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sheikh Section -->
+    <section class="py-16 px-4 bg-white" id="sheikh">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-purple-900">ضيف الرحلة</h2>
+                    <h3 class="text-2xl font-semibold mb-4 text-stone-700">الدكنور جهاد الكالوتي</h3>
+                    
+                    <div class="space-y-3 text-stone-600">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                            <span> مدير معهد المعارج للدراسات الشرعية</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                            <span>⁠دكتوراة في الفقه وأصوله</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                            <span>له العديد من المؤلفات والكتب</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                            <span>صاحب الصوت المميز والجميل في القصائد والأناشيد</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <img src="asset/jihad.JPG" alt="الشيخ جهاد الكالوتي" class="w-80 h-80 object-cover rounded-full shadow-2xl border-8 border-purple-100">
+                        <div class="absolute -bottom-4 -right-4 bg-purple-600 text-white p-3 rounded-full">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Details Section -->
+    <section class="py-16 px-4 bg-gradient-to-b from-stone-50 to-white" id="program">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-purple-900">ما يشمله العرض</h2>
+            <p class="text-lg text-stone-600 mb-12 max-w-2xl mx-auto">
+                رحلة شاملة ومتكاملة تضمن لك تجربة روحانية مميزة بأعلى مستويات الراحة والخدمة
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">✈️</div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900">الطيران والتأشيرة</h3>
+                    <p class="text-stone-600">تذاكر الطيران ذهاباً وإياباً + التأشيرة</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">🏨</div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900">الإقامة</h3>
+                    <p class="text-stone-600">فنادق 4 نجوم مع جميع وسائل الراحة</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">🍽️</div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900">الوجبات</h3>
+                    <p class="text-stone-600">وجبة الفطور يومياً</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">🕌</div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900">الزيارات</h3>
+                    <p class="text-stone-600">زيارات المآثر النبوية والأماكن المقدسة</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">🚌</div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900">التنقلات</h3>
+                    <p class="text-stone-600">جميع التنقلات بحافلات مكيفة ومريحة</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900">البرامج</h3>
+                    <p class="text-stone-600">برامج منوعة وأنشطة ثقافية ودينية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="previous-trips" style="padding: 64px 16px; background: white;">
+  <div style="max-width: 1200px; margin: 0 auto; text-align: center; margin-bottom: 48px;">
+    <h2 style="font-size: 32px; font-weight: bold; margin-bottom: 16px; color: #392F47;">
+      من رحلاتنا السابقة
+    </h2>
+    <p style="font-size: 18px; color: #392F47;">
+      لقطات مميزة من رحلات العمرة السابقة التي نظمتها شركة ماثر
+    </p>
+  </div>
+
+  <div class="trips-gallery">
+    <img src="asset/الرحل السابقة  4.jpg" alt="رحلة 1">
+    <img src="asset/الرحل  السابقة 1.jpg" alt="رحلة 2">
+    <img src="asset/الرحل السابقة 3.jpg" alt="رحلة 3">
+    <img src="asset/الرحل السابقة 2.jpg" alt="رحلة 4">
+  </div>
+</section> 
+    
+    <!-- Booking Form Section -->
+    <section class="py-16 px-4 bg-stone-100" id="booking-form">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-purple-900">احجز مكانك الآن</h2>
+                <p class="text-lg text-stone-600">املأ بياناتك لتأكيد حجزك في عمرة الإرث النبوي</p>
+            </div>
+            
+            <!-- Selected Room Summary -->
+            <div id="roomSummary" class="mb-8 bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500" style="display: none;">
+                <h3 class="text-xl font-bold mb-4 text-purple-900">تفاصيل الحجز</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <span class="font-semibold text-stone-700">نوع الغرفة:</span>
+                        <span class="mr-2 text-purple-700" id="selectedRoomName"></span>
+                    </div>
+                    <div>
+                        <span class="font-semibold text-stone-700">السعر:</span>
+                        <span class="mr-2 text-purple-700" id="selectedRoomPrice"></span>
+                    </div>
+                    <div>
+                        <span class="font-semibold text-stone-700">عدد الأشخاص:</span>
+                        <span class="mr-2 text-purple-700" id="selectedPeopleCount">1</span>
+                    </div>
+                    <div>
+                        <span class="font-semibold text-stone-700">المجموع:</span>
+                        <span class="mr-2 text-2xl font-bold text-purple-700" id="totalPrice">0 دولار</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Information Form -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 text-purple-900">المعلومات الشخصية</h3>
+                <form id="bookingForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="animate-slideIn">
+                            <label class="block mb-2 font-semibold text-stone-700">الاسم الكامل</label>
+                            <input type="text" name="name" class="form-input" placeholder="الاسم الكامل" required>
+                        </div>
+                        <div class="animate-slideIn" style="animation-delay: 0.1s;">
+                            <label class="block mb-2 font-semibold text-stone-700">البريد الإلكتروني</label>
+                            <input type="email" name="email" class="form-input" placeholder="example@email.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="animate-slideIn" style="animation-delay: 0.2s;">
+                            <label class="block mb-2 font-semibold text-stone-700">البلد</label>
+                            <select name="country" class="form-input" required>
+                                <option value="">اختر البلد</option>
+                                <option value="تركيا">تركيا</option>
+                                <option value="السعودية">السعودية</option>
+                                <option value="الإمارات">الإمارات</option>
+                                <option value="الكويت">الكويت</option>
+                                <option value="قطر">قطر</option>
+                                <option value="البحرين">البحرين</option>
+                                <option value="عمان">عمان</option>
+                                <option value="الأردن">الأردن</option>
+                                <option value="لبنان">لبنان</option>
+                                <option value="سوريا">سوريا</option>
+                                <option value="العراق">العراق</option>
+                                <option value="مصر">مصر</option>
+                                <option value="المغرب">المغرب</option>
+                                <option value="الجزائر">الجزائر</option>
+                                <option value="تونس">تونس</option>
+                                <option value="ليبيا">ليبيا</option>
+                                <option value="السودان">السودان</option>
+                                <option value="فلسطين">فلسطين</option>
+                            </select>
+                        </div>
+                        <div class="animate-slideIn" style="animation-delay: 0.3s;">
+                            <label class="block mb-2 font-semibold text-stone-700">رقم الهاتف</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="+90 XXX XXX XXXX" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="animate-slideIn" style="animation-delay: 0.4s;">
+                            <label class="block mb-2 font-semibold text-stone-700">نوع الغرفة</label>
+                            <select name="roomType" class="form-input" required>
+                                <option value="">اختر نوع الغرفة</option>
+                                <option value="الغرفة الرباعية - 1050 دولار">الغرفة الرباعية - 1050 دولار</option>
+                                <option value="الغرفة الثلاثية - 1075 دولار">الغرفة الثلاثية - 1075 دولار</option>
+                                <option value="الغرفة الثنائية - 1100 دولار">الغرفة الثنائية - 1100 دولار</option>
+                            </select>
+                        </div>
+                        <div class="animate-slideIn" style="animation-delay: 0.5s;">
+                            <label class="block mb-2 font-semibold text-stone-700">عدد الأشخاص</label>
+                            <select name="numberOfPeople" class="form-input">
+                                <option value="1">شخص واحد</option>
+                                <option value="2">شخصان</option>
+                                <option value="3">3 أشخاص</option>
+                                <option value="4">4 أشخاص</option>
+                                <option value="5">5 أشخاص</option>
+                                <option value="6">6 أشخاص</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-slideIn" style="animation-delay: 0.6s;">
+                        <label class="block mb-2 font-semibold text-stone-700">طلبات خاصة (اختياري)</label>
+                        <textarea name="specialRequests" rows="4" class="form-input" placeholder="أي طلبات خاصة أو ملاحظات..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full btn-primary text-lg py-4 animate-slideIn" style="animation-delay: 0.7s;">
+                        تأكيد الحجز
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-900 text-white pt-12 pb-4 px-4 mt-auto">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="text-center md:text-right">
+                    <img src="asset/image1.png" alt="شركة ماثر" class="w-20 h-20 mb-4 mx-auto md:mx-0">
+                    <h3 class="text-xl font-bold mb-3">شركة ماثر للسياحة الدينية</h3>
+                    <p class="text-purple-100 leading-relaxed">
+                        نقدم أفضل الخدمات السياحية الدينية مع الحرص على الجودة والراحة والأمان
+                    </p>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold mb-4">تواصل معنا</h3>
+                    <div class="space-y-3 text-purple-100">
+                        <div class="flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                            </svg>
+                            <span>+90 507 610 50 83</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>إسطنبول، تركيا</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trip Info -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4">تفاصيل الرحلة</h3>
+                    <div class="space-y-2 text-purple-100">
+                        <div>📅 16 - 24 أيلول 2024</div>
+                        <div>🕌 عمرة الإرث النبوي 37</div>
+                        <div>👨‍🏫 مع الشيخ جهاد الكالوتي</div>
+                        <div>⭐ فنادق 4 نجوم</div>
+                        <div>✈️ من إسطنبول</div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-purple-700 mb-6">
+            
+            <div class="text-center">
+                <p class="text-purple-100 mb-4">
+                    رحلة روحانية مباركة في خدمة ضيوف الرحمن
+                </p>
+                <div class="text-sm text-purple-200">
+                    © 2024 شركة ماثر للسياحة الدينية - جميع الحقوق محفوظة
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/905076105083?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D8%B9%D9%86%20%D8%B9%D9%85%D8%B1%D8%A9%20%D8%A7%D9%84%D8%A5%D8%B1%D8%AB%20%D8%A7%D9%84%D9%86%D8%A8%D9%88%D9%8A%2037" 
+     target="_blank" class="whatsapp-button" title="تواصل معنا عبر واتساب">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"></path>
+        </svg>
+    </a>
+
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzR6UYim3v6q_YGBxoFQ7mql907pTGfAcx7FBQOAS75OGpjJzyNnW9cms3YpW8J6hRwrg/exec";
+
+  document.getElementById("bookingForm").addEventListener("submit", async function(e) {
+    e.preventDefault(); // منع الإرسال العادي
+
+    const formData = new FormData(this);
+    const data = {};
+    formData.forEach((value, key) => data[key] = value);
+  console.log("بيانات الفورم:", data); // ✅ للتأكد أنها تتجمع صح
+
+    
+  });
+</script>
+
+
+    <script>
+        // Global variables
+        let selectedRoomType = '';
+        let selectedRoomName = '';
+        let selectedRoomPrice = 0;
+        let mobileNavOpen = false;
+
+        // Room data
+        const roomTypes = {
+            'quad': { name: 'الغرفة الرباعية', price: 1050 },
+            'triple': { name: 'الغرفة الثلاثية', price: 1075 },
+            'double': { name: 'الغرفة الثنائية', price: 1100 }
+        };
+
+        // Mobile navigation toggle
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.getElementById('overlay');
+            
+            mobileNavOpen = !mobileNavOpen;
+            
+            if (mobileNavOpen) {
+                mobileNav.classList.add('open');
+                overlay.classList.add('show');
+            } else {
+                mobileNav.classList.remove('open');
+                overlay.classList.remove('show');
+            }
+        }
+
+        // Room selection
+        function selectRoom(roomId, roomName) {
+            selectedRoomType = roomId;
+            selectedRoomName = roomName;
+            selectedRoomPrice = roomTypes[roomId].price;
+
+            // Update UI
+            document.querySelectorAll('.room-card').forEach(card => {
+                card.classList.remove('selected');
+                const button = card.querySelector('button');
+                button.textContent = 'اختر هذه الغرفة';
+                button.className = 'btn-primary w-full';
+            });
+
+            document.querySelectorAll(`[data-room="${roomId}"]`).forEach(card => {
+                card.classList.add('selected');
+                const button = card.querySelector('button');
+                button.textContent = 'تم الاختيار ✓';
+                button.className = 'bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 w-full';
+            });
+
+            // Show success message
+            showSuccessMessage(roomName);
+
+            // Update room summary
+            updateRoomSummary();
+
+            // Show floating button on mobile
+            const floatingButton = document.getElementById('floatingButton');
+            floatingButton.classList.add('show');
+        }
+
+        // Show success message
+        function showSuccessMessage(roomName) {
+            const successMessage = document.getElementById('successMessage');
+            const successText = document.getElementById('successText');
+            
+            successText.textContent = `تم اختيار ${roomName} بنجاح!`;
+            successMessage.classList.add('show');
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                hideSuccessMessage();
+            }, 3000);
+        }
+
+        // Hide success message
+        function hideSuccessMessage() {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.remove('show');
+        }
+
+        // Update room summary
+        function updateRoomSummary() {
+            const roomSummary = document.getElementById('roomSummary');
+            const selectedRoomNameEl = document.getElementById('selectedRoomName');
+            const selectedRoomPriceEl = document.getElementById('selectedRoomPrice');
+            
+            if (selectedRoomType) {
+                roomSummary.style.display = 'block';
+                selectedRoomNameEl.textContent = selectedRoomName;
+                selectedRoomPriceEl.textContent = `${selectedRoomPrice} دولار للشخص`;
+                updateTotalPrice();
+            }
+        }
+
+        // Update total price
+        function updateTotalPrice() {
+            const numberOfPeople = document.querySelector('[name="numberOfPeople"]').value;
+            const selectedPeopleCount = document.getElementById('selectedPeopleCount');
+            const totalPrice = document.getElementById('totalPrice');
+            
+            if (selectedRoomPrice && numberOfPeople) {
+                const total = selectedRoomPrice * parseInt(numberOfPeople);
+                selectedPeopleCount.textContent = numberOfPeople;
+                totalPrice.textContent = `${total} دولار`;
+            }
+        }
+
+        // Scroll to form
+        function scrollToForm() {
+            const formSection = document.getElementById('booking-form');
+            if (formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                country: formData.get('country'),
+                phone: formData.get('phone'),
+                roomType: formData.get('roomType'),
+                numberOfPeople: formData.get('numberOfPeople'),
+                specialRequests: formData.get('specialRequests'),
+                timestamp: new Date().toLocaleString('ar-SA', {
+                    timeZone: 'Asia/Riyadh',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })
+            };
+
+            try {
+                // ضع رابط Google Apps Script هنا
+                const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWiUU9zC5xvP1RfmzaHdnUjoirzLfBYu5NP_dE33diGOLPtiKzQWV9ufaIRRiljSMyWA/exec';
+                
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                alert('تم إرسال طلبك بنجاح! سنتواصل معك قريباً.');
+                this.reset();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavButton = document.querySelector('[onclick="toggleMobileNav()"]');
+            
+            if (mobileNavOpen && !mobileNav.contains(e.target) && !mobileNavButton.contains(e.target)) {
+                toggleMobileNav();
+            }
+        });
+    </script>
+</body>
+</html>
