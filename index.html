@@ -339,25 +339,39 @@
         <div class="relative z-20">
             <!-- Mobile Nav Button -->
             <div class="nav-bar flex justify-between flex-row-reverse items-center px-4 pt-6 pb-4 md:hidden">
+                
                 <button onclick="toggleMobileNav()" class="mobile-nav-button p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400" aria-label="Open navigation menu">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
+                
+                <select id="languageSelector" onchange="onLanguageChange(this)" class="bg-transparent border border-purple-300 text-purple-900 rounded px-2 py-1 text-sm font-medium">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                            <option value="tr">Türkçe</option>
+                        </select><p>"           "</p>
                 <div class="flex items-center w-12 h-12">
                     <img src="asset/image1.png" alt="شركة ماثر" class="object-contain w-full h-full">
                 </div>
+                
             </div>
 
             <!-- Desktop Nav -->
             <div class="nav-bar hidden md:block w-full">
                 <div class="max-w-7xl mx-auto w-full flex justify-between flex-row-reverse items-center px-10 pt-8 pb-6">
                     <div class="nav-links flex gap-10 text-lg font-medium">
-                        <a href="#" class="hover:underline transition-colors">الرئيسية</a>
-                        <a href="#rooms" class="hover:underline transition-colors">أنواع الغرف</a>
-                        <a href="#booking-form" class="hover:underline transition-colors">احجز الآن</a>
-                        <a href="#program" class="hover:underline transition-colors">البرنامج</a>
-                        <a href="#sheikh" class="hover:underline transition-colors">الشيخ المرافق</a>
+                        <a href="#" class="hover:underline transition-colors" data-translate="home">الرئيسية</a>
+                        <a href="#rooms" class="hover:underline transition-colors" data-translate="rooms">أنواع الغرف</a>
+                        <a href="#booking-form" class="hover:underline transition-colors" data-translate="bookNow">احجز الآن</a>
+                        <a href="#program" class="hover:underline transition-colors" data-translate="program">البرنامج</a>
+                        <a href="#sheikh" class="hover:underline transition-colors" data-translate="sheikh">الشيخ المرافق</a>
+                        <!-- Language Selector -->
+                        <select id="languageSelector" onchange="onLanguageChange(this)" class="bg-transparent border border-purple-300 text-purple-900 rounded px-2 py-1 text-sm font-medium">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                            <option value="tr">Türkçe</option>
+                        </select>
                     </div>
                     <div class="flex items-center w-32 h-32">
                         <img src="asset/image1.png" alt="شركة ماثر" class="object-contain">
@@ -378,11 +392,20 @@
                     </button>
                 </div>
                 <nav class="flex flex-col gap-6 text-lg font-medium p-6">
-                    <a href="#" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">الرئيسية</a>
-                    <a href="#rooms" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">أنواع الغرف</a>
-                    <a href="#booking-form" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">احجز الآن</a>
-                    <a href="#program" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">البرنامج</a>
-                    <a href="#sheikh" class="hover:text-purple-600 transition" onclick="toggleMobileNav()">الشيخ المرافق</a>
+                    <a href="#" class="hover:text-purple-600 transition" onclick="toggleMobileNav()" data-translate="home">الرئيسية</a>
+                    <a href="#rooms" class="hover:text-purple-600 transition" onclick="toggleMobileNav()" data-translate="rooms">أنواع الغرف</a>
+                    <a href="#booking-form" class="hover:text-purple-600 transition" onclick="toggleMobileNav()" data-translate="bookNow">احجز الآن</a>
+                    <a href="#program" class="hover:text-purple-600 transition" onclick="toggleMobileNav()" data-translate="program">البرنامج</a>
+                    <a href="#sheikh" class="hover:text-purple-600 transition" onclick="toggleMobileNav()" data-translate="sheikh">الشيخ المرافق</a>
+                    <!-- Language Selector for Mobile -->
+                    <div class="border-t border-purple-200 pt-4 mt-4">
+                        <label class="block text-sm font-medium mb-2" data-translate="language">اللغة</label>
+                        <select id="mobileLanguageSelector" onchange="onLanguageChange(this)" class="w-full bg-white border border-purple-300 text-purple-900 rounded px-3 py-2 text-sm">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                            <option value="tr">Türkçe</option>
+                        </select>
+                    </div>
                 </nav>
             </div>
 
@@ -392,17 +415,16 @@
             <!-- Main hero content -->
             <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto px-10 py-16 md:py-24">
                 <div class="flex-1 flex flex-col items-start text-right">
-                    <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-relaxed text-shadow-lg">عمرة الإرث النبوي 37</h1>
-                    <div class="mb-6 text-xl md:text-2xl font-semibold text-purple-200">
-                        من الديار التركية: 7 ليالٍ من 16 إلى 24 أيلول
+                    <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-relaxed text-shadow-lg" data-translate="heroTitle">عمرة الإرث النبوي 37</h1>
+                    <div class="mb-6 text-xl md:text-2xl font-semibold text-purple-200" data-translate="heroSubtitle">
+                        شركة ماثر للسياحة الدينية
                     </div>
-                    <p class="mb-8 text-lg max-w-xl leading-relaxed">
-                        انضم إلينا في رحلة روحانية مميزة إلى الأراضي المقدسة مع الشيخ جهاد الكالوتي. 
-                        رحلة شاملة تتضمن الإقامة في فنادق 4 نجوم، زيارات المآثر النبوية، وبرامج منوعة.
+                    <p class="mb-8 text-lg max-w-xl leading-relaxed" data-translate="heroDescription">
+                        انضم إلينا في رحلة روحانية مميزة لأداء العمرة مع برنامج شامل ومتكامل
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                        <a href="#rooms" class="btn-primary text-lg shadow-lg">اختر غرفتك</a>
-                        <a href="#sheikh" class="btn-secondary text-lg">تعرف على الشيخ</a>
+                        <a href="#rooms" class="btn-primary text-lg shadow-lg" data-translate="bookingButton">احجز مكانك الآن</a>
+                        <a href="#sheikh"data-translate="sheikh" class="btn-secondary text-lg">تعرف على الشيخ</a>
                     </div>
                 </div>
                 <div class="flex-1 hidden md:block"></div>
@@ -413,40 +435,40 @@
     <!-- Room Types Section -->
     <section class="py-16 px-4 bg-gradient-to-b from-stone-50 to-white" id="rooms">
         <div class="max-w-6xl mx-auto text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-purple-900">أنواع الغرف المتاحة</h2>
-            <p class="text-stone-600 text-lg max-w-2xl mx-auto">اختر نوع الغرفة المناسب لك من بين خياراتنا المتنوعة في فنادق 4 نجوم مع جميع وسائل الراحة</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-purple-900" data-translate="roomTypesTitle">أنواع الغرف المتاحة</h2>
+            <p class="text-stone-600 text-lg max-w-2xl mx-auto" data-translate="roomTypesSubtitle">اختر نوع الإقامة المناسب لك</p>
         </div>
 
         <!-- Mobile: stacked cards -->
         <div class="flex flex-col gap-6 max-w-md mx-auto md:hidden">
             <div class="room-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center border-2 border-stone-200" data-room="quad">
                 <div class="text-6xl mb-4">👥👥</div>
-                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900">الغرفة الرباعية</h3>
+                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900" data-translate="quadRoom">غرفة رباعية</h3>
                 <div class="text-stone-600 text-md mb-4 text-center leading-relaxed">
-                    <div class="mb-2">4 أشخاص في الغرفة</div>
+                    <div class="mb-2" data-translate="quadRoomDesc">غرفة عائلية لأربعة أشخاص مع مساحة واسعة</div>
                 </div>
-                <div class="font-bold text-purple-700 text-3xl mb-2">1050 دولار</div>
-                <div class="text-sm text-stone-500">للشخص الواحد</div>
+                <div class="font-bold text-purple-700 text-3xl mb-2" data-translate="quadRoomPrice">1600 ريال للشخص</div>
+                <button onclick="selectRoom('quad', 'الغرفة الرباعية')" class="btn-primary w-full mt-4" data-translate="selectRoom">اختيار هذه الغرفة</button>
             </div>
 
             <div class="room-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center border-2 border-stone-200" data-room="triple">
                 <div class="text-6xl mb-4">👥👤</div>
-                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900">الغرفة الثلاثية</h3>
+                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900" data-translate="tripleRoom">غرفة ثلاثية</h3>
                 <div class="text-stone-600 text-md mb-4 text-center leading-relaxed">
-                    <div class="mb-2">3 أشخاص في الغرفة</div>
+                    <div class="mb-2" data-translate="tripleRoomDesc">غرفة كبيرة لثلاثة أشخاص مع ترتيب مريح</div>
                 </div>
-                <div class="font-bold text-purple-700 text-3xl mb-2">1075 دولار</div>
-                <div class="text-sm text-stone-500">للشخص الواحد</div>
+                <div class="font-bold text-purple-700 text-3xl mb-2" data-translate="tripleRoomPrice">1800 ريال للشخص</div>
+                <button onclick="selectRoom('triple', 'الغرفة الثلاثية')" class="btn-primary w-full mt-4" data-translate="selectRoom">اختيار هذه الغرفة</button>
             </div>
 
             <div class="room-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center border-2 border-stone-200" data-room="double">
                 <div class="text-6xl mb-4">👥</div>
-                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900">الغرفة الثنائية</h3>
+                <h3 class="font-bold text-2xl mb-2 text-center text-purple-900" data-translate="doubleRoom">غرفة مزدوجة</h3>
                 <div class="text-stone-600 text-md mb-4 text-center leading-relaxed">
-                    <div class="mb-2">شخصان في الغرفة</div>
+                    <div class="mb-2" data-translate="doubleRoomDesc">غرفة واسعة لشخصين مع سريرين منفصلين</div>
                 </div>
-                <div class="font-bold text-purple-700 text-3xl mb-2">1100 دولار</div>
-                <div class="text-sm text-stone-500">للشخص الواحد</div>
+                <div class="font-bold text-purple-700 text-3xl mb-2" data-translate="doubleRoomPrice">2000 ريال للشخص</div>
+                <button onclick="selectRoom('double', 'الغرفة المزدوجة')" class="btn-primary w-full mt-4" data-translate="selectRoom">اختيار هذه الغرفة</button>
             </div>
         </div>
 
@@ -455,32 +477,32 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="room-card bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-2 border-stone-200" data-room="quad">
                     <div class="text-8xl mb-6">👥👥</div>
-                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900">الغرفة الرباعية</h3>
+                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900" data-translate="quadRoom">غرفة رباعية</h3>
                     <div class="text-stone-600 text-lg mb-6 text-center leading-relaxed">
-                        <div class="mb-2">4 أشخاص في الغرفة</div>
+                        <div class="mb-2" data-translate="quadRoomDesc">غرفة عائلية لأربعة أشخاص مع مساحة واسعة</div>
                     </div>
-                    <div class="font-bold text-purple-700 text-4xl mb-2">1050 دولار</div>
-                    <div class="text-sm text-stone-500">للشخص الواحد</div>
+                    <div class="font-bold text-purple-700 text-4xl mb-2" data-translate="quadRoomPrice">1600 ريال للشخص</div>
+                    <button onclick="selectRoom('quad', 'الغرفة الرباعية')" class="btn-primary w-full mt-4" data-translate="selectRoom">اختيار هذه الغرفة</button>
                 </div>
 
                 <div class="room-card bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-2 border-stone-200" data-room="triple">
                     <div class="text-8xl mb-6">👥👤</div>
-                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900">الغرفة الثلاثية</h3>
+                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900" data-translate="tripleRoom">غرفة ثلاثية</h3>
                     <div class="text-stone-600 text-lg mb-6 text-center leading-relaxed">
-                        <div class="mb-2">3 أشخاص في الغرفة</div>
+                        <div class="mb-2" data-translate="tripleRoomDesc">غرفة كبيرة لثلاثة أشخاص مع ترتيب مريح</div>
                     </div>
-                    <div class="font-bold text-purple-700 text-4xl mb-2">1075 دولار</div>
-                    <div class="text-sm text-stone-500">للشخص الواحد</div>
+                    <div class="font-bold text-purple-700 text-4xl mb-2" data-translate="tripleRoomPrice">1800 ريال للشخص</div>
+                    <button onclick="selectRoom('triple', 'الغرفة الثلاثية')" class="btn-primary w-full mt-4" data-translate="selectRoom">اختيار هذه الغرفة</button>
                 </div>
 
                 <div class="room-card bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-2 border-stone-200" data-room="double">
                     <div class="text-8xl mb-6">👥</div>
-                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900">الغرفة الثنائية</h3>
+                    <h3 class="font-bold text-2xl mb-4 text-center text-purple-900" data-translate="doubleRoom">غرفة مزدوجة</h3>
                     <div class="text-stone-600 text-lg mb-6 text-center leading-relaxed">
-                        <div class="mb-2">شخصان في الغرفة</div>
+                        <div class="mb-2" data-translate="doubleRoomDesc">غرفة واسعة لشخصين مع سريرين منفصلين</div>
                     </div>
-                    <div class="font-bold text-purple-700 text-4xl mb-2">1100 دولار</div>
-                    <div class="text-sm text-stone-500">للشخص الواحد</div>
+                    <div class="font-bold text-purple-700 text-4xl mb-2" data-translate="doubleRoomPrice">2000 ريال للشخص</div>
+                    <button onclick="selectRoom('double', 'الغرفة المزدوجة')" class="btn-primary w-full mt-4" data-translate="selectRoom">اختيار هذه الغرفة</button>
                 </div>
             </div>
         </div>
@@ -491,25 +513,24 @@
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="text-right">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-purple-900">ضيف الرحلة</h2>
-                    <h3 class="text-2xl font-semibold mb-4 text-stone-700">الدكنور جهاد الكالوتي</h3>
-                    
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-purple-900" data-translate="sheikhTitle">الشيخ المرافق</h2>
+                    <h3 class="text-2xl font-semibold mb-4 text-stone-700" data-translate="sheikhName">الدكتور جهاد الكالوتي</h3>
                     <div class="space-y-3 text-stone-600">
                         <div class="flex items-center gap-3">
                             <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
-                            <span> مدير معهد المعارج للدراسات الشرعية</span>
+                            <span data-translate="sheikhSubtitle" > مدير معهد المعارج للدراسات الشرعية</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
-                            <span>⁠دكتوراة في الفقه وأصوله</span>
+                            <span data-translate="sheikhDescription">⁠دكتوراة في الفقه وأصوله</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
-                            <span>له العديد من المؤلفات والكتب</span>
+                            <span data-translate="sheikhDescription2">له العديد من المؤلفات والكتب</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
-                            <span>صاحب الصوت المميز والجميل في القصائد والأناشيد</span>
+                            <span data-translate="sheikhDescription3">صاحب الصوت المميز والجميل في القصائد والأناشيد</span>
                         </div>
                     </div>
                 </div>
@@ -530,56 +551,56 @@
     <!-- Program Details Section -->
     <section class="py-16 px-4 bg-gradient-to-b from-stone-50 to-white" id="program">
         <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-purple-900">ما يشمله العرض</h2>
-            <p class="text-lg text-stone-600 mb-12 max-w-2xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-purple-900" data-translate="programTitle">ما يشمله العرض</h2>
+            <p class="text-lg text-stone-600 mb-12 max-w-2xl mx-auto" data-translate="programSubtitle">
                 رحلة شاملة ومتكاملة تضمن لك تجربة روحانية مميزة بأعلى مستويات الراحة والخدمة
             </p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-4xl mb-4">✈️</div>
-                    <h3 class="text-xl font-bold mb-3 text-purple-900">الطيران والتأشيرة</h3>
-                    <p class="text-stone-600">تذاكر الطيران ذهاباً وإياباً + التأشيرة</p>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900" data-translate="flights">الطيران والتأشيرة</h3>
+                    <p class="text-stone-600" data-translate="flightsDesc">تذاكر الطيران ذهاباً وإياباً + التأشيرة</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-4xl mb-4">🏨</div>
-                    <h3 class="text-xl font-bold mb-3 text-purple-900">الإقامة</h3>
-                    <p class="text-stone-600">فنادق 4 نجوم مع جميع وسائل الراحة</p>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900" data-translate="accommodation">الإقامة</h3>
+                    <p class="text-stone-600" data-translate="accommodationDesc">فنادق 4 نجوم مع جميع وسائل الراحة</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-4xl mb-4">🍽️</div>
-                    <h3 class="text-xl font-bold mb-3 text-purple-900">الوجبات</h3>
-                    <p class="text-stone-600">وجبة الفطور يومياً</p>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900" data-translate="meals">الوجبات</h3>
+                    <p class="text-stone-600" data-translate="mealsDesc">وجبة الفطور يومياً</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-4xl mb-4">🕌</div>
-                    <h3 class="text-xl font-bold mb-3 text-purple-900">الزيارات</h3>
-                    <p class="text-stone-600">زيارات المآثر النبوية والأماكن المقدسة</p>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900" data-translate="visits">الزيارات</h3>
+                    <p class="text-stone-600" data-translate="visitsDesc">زيارات المآثر النبوية والأماكن المقدسة</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-4xl mb-4">🚌</div>
-                    <h3 class="text-xl font-bold mb-3 text-purple-900">التنقلات</h3>
-                    <p class="text-stone-600">جميع التنقلات بحافلات مكيفة ومريحة</p>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900" data-translate="transport">التنقلات</h3>
+                    <p class="text-stone-600" data-translate="transportDesc">جميع التنقلات بحافلات مكيفة ومريحة</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-4xl mb-4">🎯</div>
-                    <h3 class="text-xl font-bold mb-3 text-purple-900">البرامج</h3>
-                    <p class="text-stone-600">برامج منوعة وأنشطة ثقافية ودينية</p>
+                    <h3 class="text-xl font-bold mb-3 text-purple-900" data-translate="programs">البرامج</h3>
+                    <p class="text-stone-600" data-translate="programsDesc">برامج منوعة وأنشطة ثقافية ودينية</p>
                 </div>
             </div>
         </div>
     </section>
     <section id="previous-trips" style="padding: 64px 16px; background: white;">
   <div style="max-width: 1200px; margin: 0 auto; text-align: center; margin-bottom: 48px;">
-    <h2 style="font-size: 32px; font-weight: bold; margin-bottom: 16px; color: #392F47;">
+    <h2 data-translate="previousTripsTitle" style="font-size: 32px; font-weight: bold; margin-bottom: 16px; color: #392F47;">
       من رحلاتنا السابقة
     </h2>
-    <p style="font-size: 18px; color: #392F47;">
+    <p  data-translate="previousTripsSubtitle" style="font-size: 18px; color: #392F47;">
       لقطات مميزة من رحلات العمرة السابقة التي نظمتها شركة ماثر
     </p>
   </div>
@@ -596,8 +617,8 @@
     <section class="py-16 px-4 bg-stone-100" id="booking-form">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-purple-900">احجز مكانك الآن</h2>
-                <p class="text-lg text-stone-600">املأ بياناتك لتأكيد حجزك في عمرة الإرث النبوي</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-purple-900" data-translate="bookingFormTitle">احجز مكانك الآن</h2>
+                <p class="text-lg text-stone-600" data-translate="bookingFormSubtitle">املأ بياناتك لتأكيد حجزك في عمرة الإرث النبوي</p>
             </div>
             
             <!-- Selected Room Summary -->
@@ -629,18 +650,18 @@
                 <form id="bookingForm" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="animate-slideIn">
-                            <label class="block mb-2 font-semibold text-stone-700">الاسم الكامل</label>
-                            <input type="text" name="name" class="form-input" placeholder="الاسم الكامل" required>
+                            <label class="block mb-2 font-semibold text-stone-700" data-translate="fullName">الاسم الكامل</label>
+                            <input type="text" name="name" class="form-input" data-translate="fullName" placeholder="الاسم الكامل" required>
                         </div>
                         <div class="animate-slideIn" style="animation-delay: 0.1s;">
-                            <label class="block mb-2 font-semibold text-stone-700">البريد الإلكتروني</label>
-                            <input type="email" name="email" class="form-input" placeholder="example@email.com" required>
+                            <label class="block mb-2 font-semibold text-stone-700" data-translate="email">البريد الإلكتروني</label>
+                            <input type="email" name="email" class="form-input" data-translate="email" placeholder="example@email.com" required>
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="animate-slideIn" style="animation-delay: 0.2s;">
-                            <label class="block mb-2 font-semibold text-stone-700">البلد</label>
+                            <label class="block mb-2 font-semibold text-stone-700" data-translate="country">البلد</label>
                             <select name="country" class="form-input" required>
                                 <option value="">اختر البلد</option>
                                 <option value="تركيا">تركيا</option>
@@ -664,40 +685,41 @@
                             </select>
                         </div>
                         <div class="animate-slideIn" style="animation-delay: 0.3s;">
-                            <label class="block mb-2 font-semibold text-stone-700">رقم الهاتف</label>
-                            <input type="tel" name="phone" class="form-input" placeholder="+90 XXX XXX XXXX" required>
+                            <label class="block mb-2 font-semibold text-stone-700" data-translate="phone">رقم الهاتف</label>
+                            <input type="tel" name="phone" class="form-input" data-translate="phone" placeholder="+90 XXX XXX XXXX" required>
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="animate-slideIn" style="animation-delay: 0.4s;">
-                            <label class="block mb-2 font-semibold text-stone-700">نوع الغرفة</label>
-                            <select name="roomType" class="form-input" required>
-                                <option value="">اختر نوع الغرفة</option>
-                                <option value="الغرفة الرباعية - 1050 دولار">الغرفة الرباعية - 1050 دولار</option>
-                                <option value="الغرفة الثلاثية - 1075 دولار">الغرفة الثلاثية - 1075 دولار</option>
-                                <option value="الغرفة الثنائية - 1100 دولار">الغرفة الثنائية - 1100 دولار</option>
+                            <label class="block mb-2 font-semibold text-stone-700" data-translate="roomType">نوع الغرفة</label>
+                            <select id="roomType" name="roomType" class="form-input" required>
+                                <option value="" data-translate="selectRoomType">اختر نوع الغرفة</option>
+                                <option value="quad" data-translate="quadRoom">الغرفة الرباعية</option>
+                                <option value="triple" data-translate="tripleRoom">الغرفة الثلاثية</option>
+                                <option value="double" data-translate="doubleRoom">الغرفة الثنائية</option>
                             </select>
                         </div>
                         <div class="animate-slideIn" style="animation-delay: 0.5s;">
-                            <label class="block mb-2 font-semibold text-stone-700">عدد الأشخاص</label>
-                            <select name="numberOfPeople" class="form-input">
-                                <option value="1">شخص واحد</option>
-                                <option value="2">شخصان</option>
-                                <option value="3">3 أشخاص</option>
-                                <option value="4">4 أشخاص</option>
-                                <option value="5">5 أشخاص</option>
-                                <option value="6">6 أشخاص</option>
+                            <label class="block mb-2 font-semibold text-stone-700" data-translate="numberOfPeople">عدد الأشخاص</label>
+                            <select id="numberOfPeople" name="numberOfPeople" class="form-input">
+                                <option value="" data-translate="selectNumberOfPeople">اختر عدد الأشخاص</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
                             </select>
                         </div>
                     </div>
                     
                     <div class="animate-slideIn" style="animation-delay: 0.6s;">
-                        <label class="block mb-2 font-semibold text-stone-700">طلبات خاصة (اختياري)</label>
-                        <textarea name="specialRequests" rows="4" class="form-input" placeholder="أي طلبات خاصة أو ملاحظات..."></textarea>
+                        <label class="block mb-2 font-semibold text-stone-700" data-translate="specialRequests">طلبات خاصة (اختياري)</label>
+                        <textarea name="specialRequests" rows="4" class="form-input" data-translate="specialRequests" placeholder="أي طلبات خاصة أو ملاحظات..."></textarea>
                     </div>
                     
-                    <button type="submit" class="w-full btn-primary text-lg py-4 animate-slideIn" style="animation-delay: 0.7s;">
+                    <button type="submit" class="w-full btn-primary text-lg py-4 animate-slideIn" style="animation-delay: 0.7s;" data-translate="submitBooking">
                         تأكيد الحجز
                     </button>
                 </form>
@@ -712,15 +734,15 @@
                 <!-- Company Info -->
                 <div class="text-center md:text-right">
                     <img src="asset/image1.png" alt="شركة ماثر" class="w-20 h-20 mb-4 mx-auto md:mx-0">
-                    <h3 class="text-xl font-bold mb-3">شركة ماثر للسياحة الدينية</h3>
-                    <p class="text-purple-100 leading-relaxed">
+                    <h3 class="text-xl font-bold mb-3" data-translate="footerCompany">شركة ماثر للسياحة الدينية</h3>
+                    <p class="text-purple-100 leading-relaxed" data-translate="footerText">
                         نقدم أفضل الخدمات السياحية الدينية مع الحرص على الجودة والراحة والأمان
                     </p>
                 </div>
                 
                 <!-- Contact Info -->
                 <div class="text-center">
-                    <h3 class="text-xl font-bold mb-4">تواصل معنا</h3>
+                    <h3 class="text-xl font-bold mb-4" data-translate="contactUs">تواصل معنا</h3>
                     <div class="space-y-3 text-purple-100">
                         <div class="flex items-center justify-center gap-2">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -740,13 +762,13 @@
                 
                 <!-- Trip Info -->
                 <div class="text-center md:text-left">
-                    <h3 class="text-xl font-bold mb-4">تفاصيل الرحلة</h3>
+                    <h3 class="text-xl font-bold mb-4" data-translate="tripDetails">تفاصيل الرحلة</h3>
                     <div class="space-y-2 text-purple-100">
-                        <div>📅 16 - 24 أيلول 2024</div>
-                        <div>🕌 عمرة الإرث النبوي 37</div>
-                        <div>👨‍🏫 مع الشيخ جهاد الكالوتي</div>
-                        <div>⭐ فنادق 4 نجوم</div>
-                        <div>✈️ من إسطنبول</div>
+                        <div data-translate="tripDate">📅 16 - 24 أيلول 2024</div>
+                        <div data-translate="tripName">🕌 عمرة الإرث النبوي 37</div>
+                        <div data-translate="tripSheikh">👨‍🏫 مع الشيخ جهاد الكالوتي</div>
+                        <div data-translate="tripHotels">⭐ فنادق 4 نجوم</div>
+                        <div data-translate="tripFrom">✈️ من إسطنبول</div>
                     </div>
                 </div>
             </div>
@@ -754,10 +776,10 @@
             <hr class="border-purple-700 mb-6">
             
             <div class="text-center">
-                <p class="text-purple-100 mb-4">
+                <p class="text-purple-100 mb-4" data-translate="tripNote">
                     رحلة روحانية مباركة في خدمة ضيوف الرحمن
                 </p>
-                <div class="text-sm text-purple-200">
+                <div class="text-sm text-purple-200" data-translate="copyright">
                     © 2024 شركة ماثر للسياحة الدينية - جميع الحقوق محفوظة
                 </div>
             </div>
@@ -777,7 +799,7 @@
   const scriptURL = "https://script.google.com/macros/s/AKfycbzR6UYim3v6q_YGBxoFQ7mql907pTGfAcx7FBQOAS75OGpjJzyNnW9cms3YpW8J6hRwrg/exec";
 
   document.getElementById("bookingForm").addEventListener("submit", async function(e) {
-    e.preventDefault(); // منع الإرسال العادي
+    e.preventDefault(); 
 
     const formData = new FormData(this);
     const data = {};
@@ -929,27 +951,31 @@
                 })
             };
 
-            try {
-                // ضع رابط Google Apps Script هنا
-                const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWiUU9zC5xvP1RfmzaHdnUjoirzLfBYu5NP_dE33diGOLPtiKzQWV9ufaIRRiljSMyWA/exec';
-                
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
+           const form = document.getElementById('myForm');
 
-                alert('تم إرسال طلبك بنجاح! سنتواصل معك قريباً.');
-                this.reset();
-                
-            } catch (error) {
-                console.error('Error:', error);
-                alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
-            }
+
+
+    try {
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWiUU9zC5xvP1RfmzaHdnUjoirzLfBYu5NP_dE33diGOLPtiKzQWV9ufaIRRiljSMyWA/exec';
+        
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         });
+
+        this.reset();
+        window.location.href = "success.html";
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+    }
+});
+      
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -975,5 +1001,8 @@
             }
         });
     </script>
+    
+    <!-- Language Management Script -->
+    <script src="language.js"></script>
 </body>
 </html>
