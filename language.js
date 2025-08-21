@@ -10,7 +10,7 @@ const translations = {
         
         // Hero Section
         heroTitle: "عمرة الإرث النبوي 37",
-        heroSubtitle: "من الديار التركية: 7 ليالٍ من 16 إلى 24 أيلول",
+        heroSubtitle: "من الديار التركية: 7 ليالٍ من 16 إلى 23 أيلول",
         heroDescription: "انضم إلينا في رحلة روحانية مميزة إلى الأراضي المقدسة مع الشيخ جهاد الكالوتي. رحلة شاملة تتضمن الإقامة في فنادق 4 نجوم، زيارات المآثر النبوية، وبرامج منوعة.",
         bookingButton: "اختر غرفتك",
         
@@ -39,7 +39,9 @@ const translations = {
         sheikhTitle: "الشيخ المرافق",
         sheikhSubtitle: "مدير معهد المعارج للدراسات الشرعية",
         sheikhName: "الدكتور جهاد الكالوتي",
-        sheikhDescription: "دكتوراة في الفقه وأصوله • له العديد من المؤلفات والكتب • صاحب الصوت المميز والجميل في القصائد والأناشيد",
+        sheikhDescription: "دكتوراة في الفقه وأصوله",
+        sheikhDescription2: "له العديد من المؤلفات والكتب",
+        sheikhDescription3: "صاحب الصوت المميز والجميل في القصائد والأناشيد",
         
         // Program Section
         programTitle: "ما يشمله العرض",
@@ -58,7 +60,7 @@ const translations = {
         transportDesc: "جميع التنقلات بحافلات مكيفة ومريحة",
         programs: "البرامج",
         programsDesc: "برامج منوعة وأنشطة ثقافية ودينية",
-        
+        info:"المعلومات الشخصية ",
         // Previous Trips
         previousTripsTitle: "من رحلاتنا السابقة",
         previousTripsSubtitle: "لقطات مميزة من رحلات العمرة السابقة التي نظمتها شركة ماثر",
@@ -69,24 +71,31 @@ const translations = {
         fullName: "الاسم الكامل",
         email: "البريد الإلكتروني",
         country: "البلد",
+        nationality: "الجنسية",
+        selectNationality: "اختر الجنسية",
         phone: "رقم الهاتف",
         roomType: "نوع الغرفة",
         numberOfPeople: "عدد الأشخاص",
         specialRequests: "طلبات خاصة (اختياري)",
         submitBooking: "تأكيد الحجز",
+        submitting: "جاري الإرسال...",
+        errorMessage: "حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.",
+        
+        // Visa Note
+        visaNote: "ملاحظة: بعض الجنسيات رسوم تأشيرتها أعلى من الرسوم العادية، وبالتالي يكون هناك زيادة على السعر المعلن.",
         
         // Footer
         footerCompany: "شركة ماثر للسياحة الدينية",
         footerText: "نقدم أفضل الخدمات السياحية الدينية مع الحرص على الجودة والراحة والأمان.",
         contactUs: "تواصل معنا",
         tripDetails: "تفاصيل الرحلة",
-        tripDate: "16 - 24 أيلول 2024",
+        tripDate: "16 - 23 أيلول 2025",
         tripName: "عمرة الإرث النبوي 37",
         tripSheikh: "مع الشيخ جهاد الكالوتي",
         tripHotels: "⭐ فنادق 4 نجوم",
         tripFrom: "✈️ من إسطنبول",
         tripNote: "رحلة روحانية مباركة في خدمة ضيوف الرحمن",
-        copyright: "© 2024 شركة ماثر للسياحة الدينية – جميع الحقوق محفوظة",
+        copyright: "© 2025 شركة ماثر للسياحة الدينية – جميع الحقوق محفوظة",
         
         // Success Page
         successTitle: "تم إرسال طلبك بنجاح!",
@@ -110,7 +119,7 @@ const translations = {
         
         // Hero Section
         heroTitle: "Umrah of Prophetic Heritage 37",
-        heroSubtitle: "From the Turkish lands: 7 nights, September 16–24",
+        heroSubtitle: "From the Turkish lands: 7 nights, September 16–23",
         heroDescription: "Join us on a unique spiritual journey to the sacred lands with Sheikh Jihad Al-Kalouti. This blessed journey includes accommodation in 4‑star hotels, visits to prophetic landmarks, and diverse spiritual programs.",
         bookingButton: "Choose your room",
         
@@ -159,7 +168,7 @@ const translations = {
         transportDesc: "All transfers provided by modern, air‑conditioned buses",
         programs: "Programs & Activities",
         programsDesc: "Varied programs including cultural and religious activities",
-        
+         info:"Personal Information",
         // Previous Trips
         previousTripsTitle: "Our Previous Trips",
         previousTripsSubtitle: "Highlights from past Umrah journeys organized by Ma'athir Company",
@@ -170,24 +179,31 @@ const translations = {
         fullName: "Full Name",
         email: "Email",
         country: "Country",
+        nationality: "Nationality",
+        selectNationality: "Select Nationality",
         phone: "Phone",
         roomType: "Room Type",
         numberOfPeople: "Number of People",
         specialRequests: "Special Requests (Optional)",
         submitBooking: "Booking Confirmation",
+        submitting: "Sending...",
+        errorMessage: "An error occurred while sending the request. Please try again.",
+        
+        // Visa Note
+        visaNote: "Note: Some nationalities have higher visa fees than standard rates, which may result in additional charges to the advertised price.",
         
         // Footer
         footerCompany: "Ma'athir Religious Tourism Company",
         footerText: "Ma'athir Religious Tourism Company offers the best religious tourism services, ensuring quality, comfort, and safety.",
         contactUs: "Contact Us",
         tripDetails: "Trip Details",
-        tripDate: "16 – 24 September 2024",
+        tripDate: "16 – 23 September 2025",
         tripName: "Umrah of the Prophetic Heritage 37",
         tripSheikh: "With Sheikh Jihad Al‑Kalouti",
         tripHotels: "⭐️ 4‑star hotels",
         tripFrom: "✈️ From Istanbul",
         tripNote: "A blessed spiritual journey in service of the guests of Ar‑Rahman.",
-        copyright: "© 2024 Ma'athir Religious Tourism Company - All rights reserved",
+        copyright: "© 2025 Ma'athir Religious Tourism Company - All rights reserved",
         
         // Success Page
         successTitle: "Your request has been sent successfully!",
@@ -211,7 +227,7 @@ const translations = {
         
         // Hero Section
         heroTitle: "Nebevi Miras Umresi 37",
-        heroSubtitle: "Türkiye'den: 16‑24 Eylül arası 7 gece",
+        heroSubtitle: "Türkiye'den: 16‑23 Eylül arası 7 gece",
         heroDescription: "Şeyh Cihad al‑Kalouti ile kutsal topraklara özel bir manevî yolculuğa katılın. 4 yıldızlı otellerde konaklama, Nebevî eserlerin ziyareti ve çeşitli programlarla kapsamlı bir yolculuk sizi bekliyor.",
         bookingButton: "Odanızı seçin",
         
@@ -240,7 +256,9 @@ const translations = {
         sheikhTitle: "Dr. Cihad al‑Kalouti",
         sheikhSubtitle: "Meâric İslami İlimler Enstitüsü Müdürü",
         sheikhName: "Dr. Cihad al‑Kalouti",
-        sheikhDescription: "Fıkıh ve Usûlünde Doktora sahibi • Çok sayıda eseri ve kitabı bulunmaktadır • Kasideler ve ilahilerde seçkin bir sese sahiptir",
+        sheikhDescription: "Fıkıh ve Usûlünde Doktora sahibi",
+        sheikhDescription2: "Çok sayıda eseri ve kitabı bulunmaktadır",
+        sheikhDescription3: "Kasideler ve ilahilerde seçkin bir sese sahiptir",
         
         // Program Section
         programTitle: "Pakete Dahil Olanlar",
@@ -263,31 +281,39 @@ const translations = {
         // Previous Trips
         previousTripsTitle: "Önceki Turlarımızdan",
         previousTripsSubtitle: "Meâsir firmasının düzenlediği önceki umre yolculuklarından özel kareler",
-        
+        info:"Kişisel Bilgiler",
+
         // Booking Form
         bookingFormTitle: "Yerini Hemen Ayırt",
         bookingFormSubtitle: "Nebevi Miras Umresi rezervasyonunuzu onaylamak için bilgilerinizi doldurun",
         fullName: "Ad‑Soyad",
         email: "E‑posta Adresi",
         country: "Ülke",
+        nationality: "Uyruk",
+        selectNationality: "Uyruk Seçin",
         phone: "Telefon Numarası",
         roomType: "Oda Türü",
         numberOfPeople: "Kişi Sayısı",
         specialRequests: "Özel Talepler (Opsiyonel)",
         submitBooking: "Rezervasyonu Onayla",
+        submitting: "Gönderiliyor...",
+        errorMessage: "İstek gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
+        
+        // Visa Note
+        visaNote: "Not: Bazı uyruklarda vize ücretleri standart ücretlerden daha yüksektir, bu nedenle ilan edilen fiyata ek ücret uygulanabilir.",
         
         // Footer
         footerCompany: "Meâsir Dini Turizm Şirketi",
         footerText: "Kalite, rahatlık ve güveni gözeterek en iyi dinî turizm hizmetlerini sunuyoruz.",
         contactUs: "Bize Ulaşın",
         tripDetails: "Seyahat Detayları",
-        tripDate: "16‑24 Eylül 2024",
+        tripDate: "16‑23 Eylül 2025",
         tripName: "Nebevi Miras Umresi 37",
         tripSheikh: "Şeyh Cihad al‑Kalouti Eşliğinde",
         tripHotels: "⭐ 4 Yıldızlı Oteller",
         tripFrom: "✈️ İstanbul Çıkışlı",
         tripNote: "Rahman'ın misafirlerine hizmet eden mübarek bir ruhani yolculuk",
-        copyright: "© 2024 Meâsir Dini Turizm Şirketi – Tüm Hakları Saklıdır",
+        copyright: "© 2025 Meâsir Dini Turizm Şirketi – Tüm Hakları Saklıdır",
         
         // Success Page
         successTitle: "Talebiniz başarıyla gönderildi!",
@@ -354,6 +380,7 @@ function setLanguage(lang) {
 function updateSelectOptions(lang) {
     const roomTypeSelect = document.getElementById('roomType');
     const numberOfPeopleSelect = document.getElementById('numberOfPeople');
+    const nationalitySelect = document.querySelector('select[name="nationality"]');
     
     if (roomTypeSelect) {
         roomTypeSelect.innerHTML = `
@@ -374,6 +401,33 @@ function updateSelectOptions(lang) {
             <option value="5">5</option>
             <option value="6">6</option>
         `;
+    }
+    
+    if (nationalitySelect) {
+        const currentValue = nationalitySelect.value;
+        nationalitySelect.innerHTML = `
+            <option value="">${translations[lang].selectNationality}</option>
+            <option value="تركية">تركية</option>
+            <option value="سعودية">سعودية</option>
+            <option value="إماراتية">إماراتية</option>
+            <option value="كويتية">كويتية</option>
+            <option value="قطرية">قطرية</option>
+            <option value="بحرينية">بحرينية</option>
+            <option value="عمانية">عمانية</option>
+            <option value="أردنية">أردنية</option>
+            <option value="لبنانية">لبنانية</option>
+            <option value="سورية">سورية</option>
+            <option value="عراقية">عراقية</option>
+            <option value="مصرية">مصرية</option>
+            <option value="مغربية">مغربية</option>
+            <option value="جزائرية">جزائرية</option>
+            <option value="تونسية">تونسية</option>
+            <option value="ليبية">ليبية</option>
+            <option value="سودانية">سودانية</option>
+            <option value="فلسطينية">فلسطينية</option>
+            <option value="أخرى">أخرى</option>
+        `;
+        nationalitySelect.value = currentValue;
     }
 }
 
